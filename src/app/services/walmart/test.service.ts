@@ -16,9 +16,6 @@ export class TestService {
       arrary1,
       arrary2
     };
-
-    const jsonString = JSON.stringify(objeto);
-    console.log(jsonString);
-    return this.httpClient.post(this.api_service,jsonString)
+    return this.httpClient.post(this.api_service,objeto)
   }
 }

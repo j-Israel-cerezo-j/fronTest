@@ -2,7 +2,10 @@
     <div class="row">
       <div class="col-6 col-md-6 col-sm-12 col-xsm-12" style="padding: 5%;">
         <div class="row">
-          <h2>Canasta basica 1</h2>
+          <h1 #cargando></h1>
+        </div>
+        <div class="row">
+          <h2>Canasta básica 1</h2>
           <div class="form-group">
             <label>Nombre del producto</label>
             <input #nameProduc1 id="nameProduc1" formControlName="nombre" class="form-control">
@@ -31,7 +34,7 @@
       </div>
       <div class="col-6 col-md-6 col-sm-12 col-xsm-12" style="padding: 5%;">
         <div class="row">
-          <h2>Canasta basica 2</h2>
+          <h2>Canasta básica 2</h2>
           <div class="form-group">
             <label>Nombre del producto</label>
             <input #nameProduc2 id="nombreProducCanas2"  class="form-control">
@@ -58,6 +61,10 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <span><i><b>Productos repetidos de la canasta 2 en la canasta 1:</b></i></span>
+      <span #msjRepeatProducts></span>
     </div>
     <div class="row" style="height:50px;width:500px;margin:0px auto;">
       <div class="col-6">

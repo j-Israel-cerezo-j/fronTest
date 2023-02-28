@@ -45,6 +45,8 @@ export class AppComponent implements OnInit{
 
    //Recuperacion o referencia al elemneto html
    @ViewChild('nameProduc1') inputNameBasketBasic1:ElementRef;
+   @ViewChild('msjRepeatProducts' ) msjRepeatProducts: ElementRef;
+    @ViewChild('cargando') msjCargando:ElementRef;
    //metodo encargado de agregar el nuevo refistro del elemento a su arreglo correspondiente
    onClickAddBasicBasket() {
      //recuperacion del nuevo registro
@@ -65,20 +67,18 @@ export class AppComponent implements OnInit{
   }
 
   guardar():void{
-    alert("Enviando")
+    this.msjCargando.nativeElement.innerHTML ="Cargando..."
     this.testService.saverProducts(this.basicBasketDataSource1Array,this.miFuenteDeDatos).subscribe(
       resp=>{
-        alert("Exito")
+        const myMap = new Map(Object.entries(resp));
+        myMap.forEach((value, key) => {
+          this.msjCargando.nativeElement.innerHTML =""
+          this.msjRepeatProducts.nativeElement.innerHTML +=" "+ key + ' = ' + value;
+        });
       },
       error=>{console.log(error)}
 
     )
-    // this.personaService.savePersona(this.personForm.value).subscribe(resp=>{
-    //   this.personForm.reset();
-    // },
-
-    // error =>{console.log(error)}
-    // )
   }
 }
 function agregarRegistro() {
